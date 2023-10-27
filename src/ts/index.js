@@ -52,10 +52,11 @@ var Project = document.querySelectorAll(".slider-wrap"); // Targeting the projec
 var image = document.getElementById('card1');
 var imageContent = document.getElementById('card-content');
 image.innerHTML = "<img src=".concat(projectOne.imgSrc, " />");
-imageContent.innerHTML = "<button>".concat(projectOne.tag, "</button>");
+imageContent.innerHTML = "<button>".concat(projectOne.tag, "</button><h4>").concat(projectOne.title, "</h4><p>").concat(projectOne.description, "</p>");
 console.log(imageContent);
 console.log(image);
 // Get references to the elements
+//
 // const slides = document.querySelectorAll<HTMLDivElement>(".card"); // Targeting the projects container
 // const slideContainer = document.querySelector<HTMLDivElement>(".card-container");
 // let index: number = 0;

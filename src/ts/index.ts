@@ -70,7 +70,8 @@ interface ProjectItem {
   const imageContent=document.getElementById('card-content')
 
   image.innerHTML = `<img src=${projectOne.imgSrc} />`
-  imageContent.innerHTML= `<button>${projectOne.tag}</button>`
+  imageContent.innerHTML= `<button>${projectOne.tag}</button><h4>${projectOne.title}</h4><p>${projectOne.description}</p>`
+  
 
   console.log(imageContent)
 
@@ -89,6 +90,7 @@ console.log (image)
 
 
  // Get references to the elements
+ //
 // const slides = document.querySelectorAll<HTMLDivElement>(".card"); // Targeting the projects container
 // const slideContainer = document.querySelector<HTMLDivElement>(".card-container");
 
