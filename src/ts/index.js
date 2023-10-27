@@ -41,49 +41,55 @@ var mockProject = [
         imgSrc: "/assets/images/education.jpg"
     }
 ];
-var projectOne = {
-    title: "Introducing conversational learning",
-    description: "Eos qui ratione voluptatem sequi nesciunt.Neque porro quisquam dolorem ipsum quia",
-    tag: "Education",
-    imgSrc: "/assets/images/treeMe.jpg"
-};
-//looping the data in index.ts
-var Project = document.querySelectorAll(".slider-wrap"); // Targeting the projects container
-var image = document.getElementById('card1');
-var imageContent = document.getElementById('card-content');
-image.innerHTML = "<img src=".concat(projectOne.imgSrc, " />");
-imageContent.innerHTML = "<button>".concat(projectOne.tag, "</button><h4>").concat(projectOne.title, "</h4><p>").concat(projectOne.description, "</p>");
-console.log(imageContent);
-console.log(image);
+mockProject.forEach(function (project) {
+    var image = document.getElementById('card1');
+    var imageContent = document.getElementById('card-content');
+    //image in card 
+    image.innerHTML = "<img src=".concat(project.imgSrc, " />");
+    // writtings below the image
+    imageContent.innerHTML = "<button>".concat(project.tag, "</button><h4>").concat(project.title, "</h4><p>").concat(project.description, "</p>");
+});
+var slides = document.querySelectorAll(".card"); // Targeting the projects container
+var slideContainer = document.querySelector(".card-container");
+var prevButton = document.querySelector(".bottom-btn1"); // Targeting the buttons
+var nextButton = document.querySelector(".bottom-btn2");
+var index = 0;
 // Get references to the elements
-//
-// const slides = document.querySelectorAll<HTMLDivElement>(".card"); // Targeting the projects container
-// const slideContainer = document.querySelector<HTMLDivElement>(".card-container");
-// let index: number = 0;
-// function showSlide(index: number) {
-//   for (let i =0; i < slides.length; i++) {
-//     slides[i].style.opacity = '0.3';
-//     slides[i].classList.remove('active');
-//   }
-//   slides[index].style.opacity = '1';
-//   slides[index].classList.add('active');
-//   if (slideContainer) {
-//     slideContainer.style.transform = `translateX(-${index * 10}%)`;
-//   }
-//   }
-// prevButton?.addEventListener('click', () => {
-//   index--;
-//   if (index < 0) {
-//     index = slides.length - 1;
-//   }
-//   showSlide(index);
-// });
-// nextButton?.addEventListener('click', () => {
-//   index++;
-//   if (index >= slides.length) {
-//     index = 0;
-//   }
-//   showSlide(index);
-// });
-// showSlide(index);
-// azhar ahmed bot
+function showSlide(index) {
+    for (var i = 0; i < slides.length; i++) {
+        slides[i].style.opacity = '0.3';
+        slides[i].classList.remove('active');
+    }
+    slides[index].style.opacity = '1';
+    slides[index].classList.add('active');
+    if (slideContainer) {
+        slideContainer.style.transform = "translateX(-".concat(index * 10, "%)");
+    }
+}
+prevButton === null || prevButton === void 0 ? void 0 : prevButton.addEventListener('click', function () {
+    index--;
+    if (index < 0) {
+        index = slides.length - 1;
+    }
+    showSlide(index);
+});
+nextButton === null || nextButton === void 0 ? void 0 : nextButton.addEventListener('click', function () {
+    index++;
+    if (index >= slides.length) {
+        index = 0;
+    }
+    showSlide(index);
+});
+showSlide(index);
+// const projectOne: ProjectItem = {
+//   title: "Introducing conversational learning",
+//   description: "Eos qui ratione voluptatem sequi nesciunt.Neque porro quisquam dolorem ipsum quia",
+//   tag: "Education",
+//   imgSrc: "/assets/images/treeMe.jpg"
+// }
+// //looping the data in index.ts
+// const Project= document.querySelectorAll<HTMLDivElement>(".slider-wrap"); // Targeting the projects container
+// const image=document.getElementById('card1');
+// const imageContent=document.getElementById('card-content')
+// image.innerHTML = `<img src=${projectOne.imgSrc} />`
+// imageContent.innerHTML= `<button>${projectOne.tag}</button><h4>${projectOne.title}</h4><p>${projectOne.description}</p>`
