@@ -4,7 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
     var prevButton = document.querySelector(".bottom-btn1"); // Targeting the buttons
     var nextButton = document.querySelector(".bottom-btn2");
     if (prevButton && nextButton) {
-        prevButton.addEventListener("click", function () {
+        prevButton.addEventListener('click', function () {
+            showSlide(0);
+        });
+        nextButton.addEventListener('click', function () {
+            showSlide(3);
         });
     }
 });
@@ -51,8 +55,8 @@ mockProject.forEach(function (project) {
 });
 var slides = document.querySelectorAll(".card"); // Targeting the projects container
 var slideContainer = document.querySelector(".card-container");
-var prevButton = document.querySelector(".bottom-btn1"); // Targeting the buttons
-var nextButton = document.querySelector(".bottom-btn2");
+var prevButton = document.querySelector('.bottom-btn1');
+var nextButton = document.querySelector('.bottom-btn2');
 var index = 0;
 // Get references to the elements
 function showSlide(index) {

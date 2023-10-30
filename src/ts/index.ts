@@ -1,15 +1,19 @@
 // defining the interface objects for the projectItems
 // JSDoc comment
 document.addEventListener("DOMContentLoaded", () =>{
-const prevButton = document.querySelector<HTMLButtonElement>(".bottom-btn1"); // Targeting the buttons
-const nextButton = document.querySelector<HTMLButtonElement>(".bottom-btn2");
+  const prevButton = document.querySelector<HTMLButtonElement>(".bottom-btn1"); // Targeting the buttons
+  const nextButton = document.querySelector<HTMLButtonElement>(".bottom-btn2");
 
-if (prevButton && nextButton){
-  prevButton.addEventListener("click", () =>{
+  if (prevButton && nextButton) {
+    prevButton.addEventListener('click', () => {
+      showSlide(0);
+    });
 
-  })
-}
-})
+    nextButton.addEventListener('click', () => {
+      showSlide(3);
+    });
+
+  }})
 
 /**
  * Interface for classes that represent a project.
@@ -67,8 +71,8 @@ interface ProjectItem {
 
   const slides = document.querySelectorAll<HTMLDivElement>(".card"); // Targeting the projects container
   const slideContainer = document.querySelector<HTMLDivElement>(".card-container");
-  const prevButton = document.querySelector<HTMLButtonElement>(".bottom-btn1"); // Targeting the buttons
-  const nextButton = document.querySelector<HTMLButtonElement>(".bottom-btn2");
+  const prevButton = document.querySelector<HTMLButtonElement>('.bottom-btn1');
+  const nextButton = document.querySelector<HTMLButtonElement>('.bottom-btn2');
 
   let index: number = 0;
  // Get references to the elements
