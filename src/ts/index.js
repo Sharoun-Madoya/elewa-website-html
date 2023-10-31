@@ -2,8 +2,7 @@
 // JSDoc comment
 document.addEventListener("DOMContentLoaded", function () {
     var slideContainer = document.querySelector(".card-container");
-    var prevButton = document.querySelector(".bottom-btn1"); // Targeting the buttons
-    var nextButton = document.querySelector(".bottom-btn2");
+    var buttons = document.querySelector('.bottom-btn');
     // This is the data contained in the project one as displayed on the html
     var mockProject = [
         {
@@ -53,6 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
         card.appendChild(cardContent);
         return card;
     }
+    var prevButton = document.querySelector(".bottom-btn1"); // Targeting the buttons
+    var nextButton = document.querySelector(".bottom-btn2");
+    prevButton.innerHTML = '<img src=assets/images/previous.png alt=previous>';
+    nextButton.innerHTML = '<img src=assets/images/next.png alt=next>';
     // Append each project as a card to the slide container
     mockProject.forEach(function (project) {
         var card = createCard(project);
@@ -60,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     var slides = document.querySelectorAll('.card');
     var index = 0;
+    // Get references to the elements
     function showSlide(index) {
         for (var i = 0; i < slides.length; i++) {
             slides[i].style.opacity = '0.3';
@@ -68,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slides[index].style.opacity = '1';
         slides[index].classList.add('active');
         if (slideContainer) {
-            slideContainer.style.transform = "translateX(-".concat(index * 100, "%)");
+            slideContainer.style.transform = "translateX(-".concat(index * 10, "%)");
         }
     }
     prevButton === null || prevButton === void 0 ? void 0 : prevButton.addEventListener('click', function () {

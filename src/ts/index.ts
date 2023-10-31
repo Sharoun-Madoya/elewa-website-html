@@ -2,8 +2,6 @@
 // JSDoc comment
 document.addEventListener("DOMContentLoaded", () =>{
   const slideContainer = document.querySelector<HTMLDivElement>(".card-container");
-  const prevButton = document.querySelector<HTMLButtonElement>(".bottom-btn1"); // Targeting the buttons
-  const nextButton = document.querySelector<HTMLButtonElement>(".bottom-btn2");
 
   /**
  * Interface for classes that represent a project.
@@ -49,7 +47,6 @@ const mockProject:ProjectItem[]=[
     imgSrc: "/assets/images/education.jpg"
   }];
 
-
     // Clear the slide container
   slideContainer.innerHTML = '';
 
@@ -77,6 +74,12 @@ const mockProject:ProjectItem[]=[
     return card;
   }
 
+  const prevButton = document.querySelector<HTMLButtonElement>(".bottom-btn1"); // Targeting the buttons
+  const nextButton = document.querySelector<HTMLButtonElement>(".bottom-btn2");
+
+  prevButton.innerHTML='<img src=assets/images/previous.png alt=previous>'
+  nextButton.innerHTML='<img src=assets/images/next.png alt=next>'
+
   // Append each project as a card to the slide container
   mockProject.forEach(project => {
     const card = createCard(project);
@@ -85,7 +88,8 @@ const mockProject:ProjectItem[]=[
 
   const slides = document.querySelectorAll<HTMLDivElement>('.card');
   let index = 0;
-
+  
+// Get references to the elements
   function showSlide(index: number) {
     for (let i = 0; i < slides.length; i++) {
       slides[i].style.opacity = '0.3';
@@ -94,7 +98,7 @@ const mockProject:ProjectItem[]=[
     slides[index].style.opacity = '1';
     slides[index].classList.add('active');
     if (slideContainer) {
-      slideContainer.style.transform = `translateX(-${index * 100}%)`;
+      slideContainer.style.transform = `translateX(-${index * 10}%)`;
     }
   }
 
